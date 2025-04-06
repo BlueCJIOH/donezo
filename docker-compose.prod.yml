@@ -5,7 +5,7 @@ services:
   web:
     build:
       context: .
-      dockerfile: Dockerfile.local
+      dockerfile: Dockerfile
     container_name: "${ENVIRONMENT}-donezo_web"
     env_file:
       - .env

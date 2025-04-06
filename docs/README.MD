@@ -25,8 +25,10 @@ uv --version
 ## Usage
 ### Docker
 **Build and start the application**:
+
+* `ENV`-variable can be `prod` or `local` according to your needs
 ```bash
-make up
+make up ENV=<environment>
 ```
 **Stop the application**:
 ```bash
