@@ -1,0 +1,22 @@
+x-backend-variables: &backend-variables
+  ENVIRONMENT: ${ENVIRONMENT:-local}
+
+services:
+  web:
+    build: .
+    container_name: "${ENVIRONMENT}-donezo_web"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./src:/app/src
+      - ./pyproject.toml:/app/pyproject.toml
+      - ./uv.lock:/app/uv.lock
+    environment:
+      <<: *backend-variables
+    restart: on-failure
+    networks:
+      local:
+
+networks:
+  local:
+    driver: bridge
